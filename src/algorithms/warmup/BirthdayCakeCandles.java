@@ -1,7 +1,5 @@
 package algorithms.warmup;
 
-public class BirthdayCakeCandles {
-
 import java.util.Scanner;
 
 public class BirthdayCakeCandles {

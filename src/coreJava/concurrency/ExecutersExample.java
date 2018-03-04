@@ -11,7 +11,7 @@ public class ExecutersExample {
 
 		ExecutorService executor = Executors.newCachedThreadPool();
 
-		Future result;
+		Future<?> result;
 		for (int i = 0; i < 5; i++) {
 			result = executor.submit(() -> System.out.println(Thread.currentThread().getName()));
 			try {
