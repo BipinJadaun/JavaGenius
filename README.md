@@ -1,2 +1,0 @@
-# JavaGenius
-My Development work
