@@ -1,7 +1,7 @@
 package coreJava.java8;
 
 /*
- * Lambda expressions works only fir the interfaces which haves only one abstract method
+ * Lambda expressions works only for the interfaces which haves only one abstract method
  * so to avoid any addition of new methods in an interface which is being used for lambda expressions
  * annotation FunctionalInterface is used, which prevents any new methods addtion
  */
