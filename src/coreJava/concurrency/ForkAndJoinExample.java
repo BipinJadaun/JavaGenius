@@ -59,7 +59,7 @@ class MyRecursiveTask extends RecursiveTask<Long> {
         MyRecursiveTask subtask1 = new MyRecursiveTask(this.workLoad / 2);
         MyRecursiveTask subtask2 = new MyRecursiveTask(this.workLoad / 2);
 
-        subtasks.add(subtask1);
+        subtasks.add(subtask1); 
         subtasks.add(subtask2);
 
         return subtasks;
