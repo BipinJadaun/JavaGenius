@@ -1,4 +1,4 @@
-package java.java8;
+package corejava.java8;
 
 interface Greeting{
 	public void wishes();

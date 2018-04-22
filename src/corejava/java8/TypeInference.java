@@ -1,4 +1,4 @@
-package java.java8;
+package corejava.java8;
 
 interface StringLength{
 	public int getLength(String s);

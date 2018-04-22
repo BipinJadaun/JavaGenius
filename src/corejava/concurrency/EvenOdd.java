@@ -1,4 +1,4 @@
-package java.multithreading;
+package corejava.concurrency;
 
 public class EvenOdd {
 

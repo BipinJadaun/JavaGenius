@@ -1,4 +1,4 @@
-package java.java8;
+package corejava.java8;
 
 /*
  * Lambda expressions works only for the interfaces which haves only one abstract method

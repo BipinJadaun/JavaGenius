@@ -1,4 +1,4 @@
-package java.string;
+package corejava.string;
 
 public class PrintAllPermutations {
 	public static void main(String[] args) {
