@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 public class WaysToCreateNewObject implements Cloneable, Serializable {
 
 	private static final long serialVersionUID = -5016673887060463500L;
-	public static final String CLASS_NAME = "multithreading.WaysToCreateNewObject"; 
+	public static final String CLASS_NAME = "D:/workspace/JavaGenius/src/resources/WaysToCreateNewObject";
 
 	private long id;
 	private String name;
@@ -45,8 +45,8 @@ public class WaysToCreateNewObject implements Cloneable, Serializable {
 		WaysToCreateNewObject newObject1 = new WaysToCreateNewObject();
 		
 		//Using newInstance Method
-		Class waysToCreateNewObjectClass = Class.forName(CLASS_NAME);
-		WaysToCreateNewObject newObject2 = (WaysToCreateNewObject) waysToCreateNewObjectClass.newInstance();
+		//Class waysToCreateNewObjectClass = Class.forName(CLASS_NAME);
+		//WaysToCreateNewObject newObject2 = (WaysToCreateNewObject) waysToCreateNewObjectClass.newInstance();
 		
 		//Using Constructor's newInstance methods
 		Constructor<WaysToCreateNewObject> waysToCreateNewObjectConstructors = WaysToCreateNewObject.class.getDeclaredConstructor();
@@ -58,10 +58,9 @@ public class WaysToCreateNewObject implements Cloneable, Serializable {
 		
 		//Using Deserialization
 		File objectFile = new File(CLASS_NAME);
-		FileOutputStream fos = new FileOutputStream(objectFile);
-		FileInputStream fis = new FileInputStream(objectFile);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        ObjectInputStream ois = new ObjectInputStream(fis);
+
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(objectFile));
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(objectFile));
 
 		
         oos.writeObject(newObject4);
@@ -73,7 +72,7 @@ public class WaysToCreateNewObject implements Cloneable, Serializable {
         newObject5.reset();
         
 		System.out.println(newObject1);
-		System.out.println(newObject2);
+		//System.out.println(newObject2);
 		System.out.println(newObject3);
 		System.out.println(newObject4);
 		System.out.println(newObject5);
