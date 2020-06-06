@@ -4,7 +4,7 @@ import dataStructures.models.TreeNode;
 
 /**
  * 
- * @see https://www.geeksforgeeks.org/convert-a-given-tree-to-sum-tree/
+ * https://www.geeksforgeeks.org/convert-a-given-tree-to-sum-tree/
  */
 public class ChangeBinaryTreeToItsSumTree {
 
@@ -17,11 +17,11 @@ public class ChangeBinaryTreeToItsSumTree {
         root.left.right = new TreeNode(-4);
         root.right.left = new TreeNode(7);
         root.right.right = new TreeNode(5);
-        
-        TraverseInorderRecursive.inOrder(root);
+
+		TraverseInOrder.inOrderRecursive(root);
         convertToSumTree(root);
         System.out.println();
-        TraverseInorderRecursive.inOrder(root);
+		TraverseInOrder.inOrderRecursive(root);
         
 	}
 

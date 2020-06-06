@@ -2,16 +2,16 @@ package dataStructures.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
+
 import dataStructures.models.TreeNode;
 
 /**
- * 
- * @see 
  * https://www.geeksforgeeks.org/level-order-tree-traversal/
  * https://www.geeksforgeeks.org/print-level-order-traversal-line-line/
  * https://www.geeksforgeeks.org/level-order-traversal-line-line-set-2-using-two-queues/
  */
-public class TraverseLevelorderIterative {
+public class TraverseLevelorder {
 
 	public static void main(String[] args) {
 		TreeNode root;
@@ -26,15 +26,18 @@ public class TraverseLevelorderIterative {
 
         levelOrder(root);
         System.out.println();
+        levelOrderInReverseOrder(root);
+		System.out.println();
         levelOrderPrintOnDifferentLevelsWithTwoQueues(root);
         levelOrderPrintOnDifferentLevelsWithSingleQueue(root);
+
 	}
 
 
 	public static void levelOrder(TreeNode root) {
 		if(root == null)
 			return;
-		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		Queue<TreeNode> queue = new LinkedList<>();
 		queue.add(root);
 		
 		while(!queue.isEmpty()) {
@@ -51,11 +54,33 @@ public class TraverseLevelorderIterative {
 		
 	}
 
+	private static void levelOrderInReverseOrder(TreeNode root) {
+		if(root == null)
+			return;
+		Queue<TreeNode> queue = new LinkedList<>();
+		Stack<TreeNode> stack = new Stack<>();
+		queue.add(root);
+
+		while(!queue.isEmpty()) {
+			TreeNode tmp = queue.poll();
+			stack.push(tmp);
+
+			if(tmp.right != null)
+				queue.add(tmp.right);
+			if(tmp.left != null)
+				queue.add(tmp.left);
+		}
+
+		while(!stack.isEmpty()) {
+			System.out.print(stack.pop().val + " ");
+		}
+	}
+
 	public static void levelOrderPrintOnDifferentLevelsWithTwoQueues(TreeNode root) {
 		if(root == null)
 			return;
-		Queue<TreeNode> queueParent = new LinkedList<TreeNode>();
-		Queue<TreeNode> queueChildren = new LinkedList<TreeNode>();
+		Queue<TreeNode> queueParent = new LinkedList<>();
+		Queue<TreeNode> queueChildren = new LinkedList<>();
 		queueParent.add(root);
 	
 		while(!queueParent.isEmpty() || !queueChildren.isEmpty()) {
@@ -81,7 +106,7 @@ public class TraverseLevelorderIterative {
 	public static void levelOrderPrintOnDifferentLevelsWithSingleQueue(TreeNode root) {
 		if(root == null)
 			return;
-		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		Queue<TreeNode> queue = new LinkedList<>();
 		queue.add(root);
 		
 		while(true) {

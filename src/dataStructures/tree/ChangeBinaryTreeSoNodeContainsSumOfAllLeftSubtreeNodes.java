@@ -3,7 +3,7 @@ package dataStructures.tree;
 import dataStructures.models.TreeNode;
 /**
  * 
- * @see https://www.geeksforgeeks.org/change-a-binary-tree-so-that-every-node-stores-sum-of-all-nodes-in-left-subtree/
+ * https://www.geeksforgeeks.org/change-a-binary-tree-so-that-every-node-stores-sum-of-all-nodes-in-left-subtree/
  */
 public class ChangeBinaryTreeSoNodeContainsSumOfAllLeftSubtreeNodes {
 
@@ -16,11 +16,11 @@ public class ChangeBinaryTreeSoNodeContainsSumOfAllLeftSubtreeNodes {
 	        root.left.left = new TreeNode(4);
 	        root.left.right = new TreeNode(5);
 	        root.left.left.right = new TreeNode(6);
-	        
-	        TraverseInorderRecursive.inOrder(root);
+
+		TraverseInOrder.inOrderRecursive(root);
 	        convert(root);
 	        System.out.println();
-	        TraverseInorderRecursive.inOrder(root);
+		TraverseInOrder.inOrderRecursive(root);
 	        
 	}
 

@@ -3,7 +3,7 @@ package dataStructures.tree;
 import dataStructures.models.TreeNode;
 /**
  * 
- * @see https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
+ * https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
  *
  */
 public class ConvertBinaryTreeToItsMirrorTree {
@@ -17,10 +17,10 @@ public class ConvertBinaryTreeToItsMirrorTree {
         root.left.right = new TreeNode(5);
         root.left.left.right = new TreeNode(6);
         
-        TraverseLevelorderIterative.levelOrderPrintOnDifferentLevelsWithTwoQueues(root);
+        TraverseLevelorder.levelOrderPrintOnDifferentLevelsWithTwoQueues(root);
         convertToMirror(root);
         System.out.println();
-        TraverseLevelorderIterative.levelOrderPrintOnDifferentLevelsWithSingleQueue(root);
+        TraverseLevelorder.levelOrderPrintOnDifferentLevelsWithSingleQueue(root);
         
 	}
 

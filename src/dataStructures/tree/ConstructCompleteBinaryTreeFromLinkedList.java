@@ -7,7 +7,7 @@ import dataStructures.models.ListNode;
 import dataStructures.models.TreeNode;
 /**
  * 
- * @see https://www.geeksforgeeks.org/given-linked-list-representation-of-complete-tree-convert-it-to-linked-representation/
+ * https://www.geeksforgeeks.org/given-linked-list-representation-of-complete-tree-convert-it-to-linked-representation/
  */
 public class ConstructCompleteBinaryTreeFromLinkedList {
 
@@ -21,12 +21,12 @@ public class ConstructCompleteBinaryTreeFromLinkedList {
 		head.next.next.next.next.next.next = new ListNode(6);
 		
 		TreeNode root = convertListToTree(head);
-		TraverseInorderRecursive.inOrder(root);
+		TraverseInOrder.inOrderRecursive(root);
 		 
 	}
 
 	private static TreeNode convertListToTree(ListNode head) {
-		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		Queue<TreeNode> queue = new LinkedList<>();
 		TreeNode root = new TreeNode(head.val);
 		queue.add(root);
 		head = head.next;

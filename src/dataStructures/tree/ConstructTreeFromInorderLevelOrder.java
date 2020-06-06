@@ -5,20 +5,20 @@ import dataStructures.utils.Util;
 
 /**
  * 
- * @see https://www.geeksforgeeks.org/construct-tree-inorder-level-order-traversals/
+ * https://www.geeksforgeeks.org/construct-tree-inorder-level-order-traversals/
  */
 public class ConstructTreeFromInorderLevelOrder {
 
 	public static void main(String[] args) {
 
-		   int in[] = {4, 8, 10, 12, 14, 20, 22};
-		   int level[] = {20, 8, 22, 4, 12, 10, 14};
+		   int[] in = {4, 8, 10, 12, 14, 20, 22};
+		   int[] level = {20, 8, 22, 4, 12, 10, 14};
 		   int len = in.length;
 
 		   TreeNode root = constructTree(in, level, 0, len - 1);
-		   TraverseInorderRecursive.inOrder(root);
+			TraverseInOrder.inOrderRecursive(root);
 		   System.out.println();
-		   TraverseLevelorderIterative.levelOrder(root);
+		   TraverseLevelorder.levelOrder(root);
 	}
 	
 

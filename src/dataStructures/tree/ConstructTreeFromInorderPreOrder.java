@@ -5,9 +5,7 @@ import dataStructures.utils.Util;
 
 /**
  * 
- * @see https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/
- * 
- * @see
+ * https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/
  * Time Complexity: O(n^2). Worst case occurs when tree is left skewed. 
  * Example Preorder and Inorder traversals for worst case are {A, B, C, D} and {D, C, B, A}
  */
@@ -17,14 +15,14 @@ public class ConstructTreeFromInorderPreOrder {
 
 	public static void main(String[] args) {
 
-		   int in[] = {4, 2, 5, 1, 3, 6};
-		   int pre[] =  {1, 2, 4, 5, 3, 6};
+		   int[] in = {4, 2, 5, 1, 3, 6};
+		   int[] pre =  {1, 2, 4, 5, 3, 6};
 		   int len = in.length;
 
 		   TreeNode root = constructTree(in, pre, 0, len - 1);
-		   TraverseInorderRecursive.inOrder(root);
+		   TraverseInOrder.inOrderRecursive(root);
 		   System.out.println();
-		   TraversePreorderRecursive.preOrder(root);
+		   TraversePreOrder.preOrderRecursive(root);
 	}
 	
 

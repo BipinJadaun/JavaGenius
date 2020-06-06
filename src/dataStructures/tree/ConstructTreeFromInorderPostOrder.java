@@ -5,7 +5,7 @@ import dataStructures.utils.Util;
 
 /**
  * 
- * @see https://www.geeksforgeeks.org/construct-a-binary-tree-from-postorder-and-inorder/
+ * https://www.geeksforgeeks.org/construct-a-binary-tree-from-postorder-and-inorder/
  */
 public class ConstructTreeFromInorderPostOrder {
 
@@ -13,15 +13,16 @@ public class ConstructTreeFromInorderPostOrder {
 
 	public static void main(String[] args) {
 
-		   int in[] = {4, 2, 5, 1, 3, 6};
-		   int post[] =  {1, 2, 4, 5, 3, 6};
+		   int[] in = {4, 2, 5, 1, 3, 6};
+		   int[] post =  {1, 2, 4, 5, 3, 6};
 		   int len = in.length;
 		   postIndex = len - 1;
 
 		   TreeNode root = constructTree(in, post, 0, len - 1);
-		   TraverseInorderRecursive.inOrder(root);
-		   System.out.println();
-		   TraversePostorderRecursive.postOrder(root);
+
+			TraverseInOrder.inOrderRecursive(root);
+		   	System.out.println();
+			TraversePostOrder.postOrderRecursive(root);
 	}
 	
 

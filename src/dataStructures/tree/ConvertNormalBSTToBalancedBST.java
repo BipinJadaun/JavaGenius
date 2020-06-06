@@ -18,13 +18,13 @@ public class ConvertNormalBSTToBalancedBST {
         root.left.left.left.left = new TreeNode(5);
   
         TreeNode balancedRoot = convertToBalancedBST(root);
-        TraversePreorderRecursive.preOrder(balancedRoot);
+		TraversePreOrder.preOrderRecursive(balancedRoot);
         
 	}
 
 	private static TreeNode convertToBalancedBST(TreeNode root) {
 		
-		Object[] inOrder = TraverseInorderRecursive.getInOrderInArray(root);
+		Object[] inOrder = TraverseInOrder.getInOrderInArray(root);
 		System.out.println(Arrays.toString(inOrder));
 		//TreeNode balancedRoot = Util.createBinaryTreeFromArray(inOrder, 0, inOrder.length);
 		TreeNode balancedRoot = createBalancedTreeFromSortedArray(inOrder, 0, inOrder.length - 1);
