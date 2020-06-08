@@ -1,15 +1,23 @@
 package algorithms.sorting;
 import java.util.Arrays;
 
+/**
+ * Merge sort is a “divide and conquer” algorithm wherein we first divide the problem into sub-problems.
+ * When the solutions for the sub-problems are ready, we combine them together to get the final solution to the problem.
+ * Divide: In this step, we divide the input array into 2 halves, the pivot being the midpoint of the array.
+ * 			This step is carried out recursively for all the half arrays until there are no more half arrays to divide.
+ * Conquer: In this step, we sort and merge the divided arrays from bottom to top and get the sorted array.
+ */
 public class MergeSort {
 
 	public static void main(String[] args) {
 		int[] array = new int[]{20, 35, 7, -15, 55, 1, 9, -22};
+		//int[] array = new int[]{20, 35, 7};
 
 		sort(array, 0, array.length);
 
-		for (int i = 0; i < array.length; i++) {
-			System.out.println(array[i]);
+		for (int value : array) {
+			System.out.println(value);
 		}
 	}
 
@@ -42,8 +50,15 @@ public class MergeSort {
 		}
 		// Optimization2: we need to copy the remaining elements only from left array to the main array
 		// because the remaining element of right array are greater than last element in temp array
-		// and will already in its right position in main array
-		System.arraycopy(arr, i, arr, start + tempIndex, mid -i);
+		// and already will be at their correct positions in main array
+
+		while(i < mid){
+			tempArr[tempIndex++] = arr[i++];
+		}
+		//alternatively we can add remaining elements of left array directly to main array
+		//System.arraycopy(arr, i, arr, start + tempIndex, mid -i);
+
+		//finally add the sorted element from temp array to main array.
 		System.arraycopy(tempArr, 0, arr, start, tempIndex);
 	}
 }
