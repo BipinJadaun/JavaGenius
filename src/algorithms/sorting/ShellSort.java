@@ -1,5 +1,7 @@
 package algorithms.sorting;
 
+import java.util.Arrays;
+
 /**
  * @author bipin.kumar
  * Shellsort is an optimization of insertion sort that allows the exchange of items that are far apart.
@@ -14,7 +16,13 @@ public class ShellSort {
 
         int[] array = new int[]{20, 35, 7, -15, 55, 1, 9, -22};
 
-        for (int gap = array.length/2; gap > 0 ; gap/=2) {
+        shellSort(array, 0, array.length);
+
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void shellSort(int[] array, int start, int end) {
+        for (int gap = end/2; gap > start ; gap/=2) {
             for (int i = gap; i < array.length; i++) {
                 int key = array[i];
                 int j = i;
@@ -24,10 +32,6 @@ public class ShellSort {
                 }
                 array[j] = key;
             }
-        }
-
-        for (int i: array) {
-            System.out.println(i);
         }
     }
 }

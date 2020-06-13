@@ -1,10 +1,10 @@
 package algorithms.dynamicprogramming;
 
-public class _01KnapSack {
+public class KnapSack {
 
 	public static void main(String[] args) {
-		int profit[] = {10, 60, 120, 60};
-	    int weight[] = {10, 20, 5, 30};
+		int[] profit = {10, 60, 120, 60};
+	    int[] weight = {10, 20, 5, 30};
 	    
 	    int size = 35;
 	    int gain = 0;

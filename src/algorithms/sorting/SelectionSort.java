@@ -1,5 +1,9 @@
 package algorithms.sorting;
 
+import dataStructures.utils.Util;
+
+import java.util.Arrays;
+
 /**
  * @author bipin.kumar
  * The upper part of an array is maintained to be sorted.
@@ -13,29 +17,21 @@ public class SelectionSort {
 	public static void main(String[] args) {
 		
 		int[] array = {20, 35, 7, -22, 55, 1, 9, -5};
-		
-		for(int lastSortedIndex = array.length-1; lastSortedIndex > 0; lastSortedIndex--) {
+
+		selectionSort(array, 0 , array.length);
+
+		System.out.println(Arrays.toString(array));
+	}
+
+	public static void selectionSort(int[] array, int start, int end) {
+		for(int lastSortedIndex = end-1; lastSortedIndex > start; lastSortedIndex--) {
 			int maxIndex = 0;
 			for(int i = 1; i <= lastSortedIndex; i++) {
 				if(array[i] > array[maxIndex]) {
 					maxIndex = i;
 				}
 			}
-			swap(array, maxIndex, lastSortedIndex);
-		}
-		
-		for(int i : array) {
-			System.out.println(i);
+			Util.swap(array, maxIndex, lastSortedIndex);
 		}
 	}
-	
-	public static void swap(int[] array, int i, int j) {
-		if (i == j) {
-			return;
-		}
-		int temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
-	}
-
 }

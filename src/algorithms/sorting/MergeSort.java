@@ -1,12 +1,13 @@
 package algorithms.sorting;
-import java.util.Arrays;
 
 /**
- * Merge sort is a “divide and conquer” algorithm wherein we first divide the problem into sub-problems.
+ * @author Bipin Jadaun
+ * MergeSort leverages the "divide-and-conquer" principle. wherein we first divide the problem into sub-problems.
  * When the solutions for the sub-problems are ready, we combine them together to get the final solution to the problem.
  * Divide: In this step, we divide the input array into 2 halves, the pivot being the midpoint of the array.
  * 			This step is carried out recursively for all the half arrays until there are no more half arrays to divide.
  * Conquer: In this step, we sort and merge the divided arrays from bottom to top and get the sorted array.
+ * * It's not "In-place" but "Stable" sorting algorithm. It has an  O(nlogn) time complexity.
  */
 public class MergeSort {
 
@@ -14,21 +15,21 @@ public class MergeSort {
 		int[] array = new int[]{20, 35, 7, -15, 55, 1, 9, -22};
 		//int[] array = new int[]{20, 35, 7};
 
-		sort(array, 0, array.length);
+		mergeSort(array, 0, array.length);
 
 		for (int value : array) {
 			System.out.println(value);
 		}
 	}
 
-	public static void sort(int[] arr, int start, int end){
+	public static void mergeSort(int[] arr, int start, int end){
 		//Base Case: if array partition has only 1 value, return
 		if(end - start < 2){
 			return;
 		}
 		int mid = (start + end) / 2;
-		sort(arr, start, mid);
-		sort(arr, mid, end);
+		mergeSort(arr, start, mid);
+		mergeSort(arr, mid, end);
 		merge(arr, start, mid, end);
 	}
 
@@ -46,6 +47,7 @@ public class MergeSort {
 		int[] tempArr = new int[end - start];
 		// //20, 35, 7, -15, 55, 1, 9, -22
 		while (i < mid && j < end){
+			//copy the elements from both the arrays in sorted order
 			tempArr[tempIndex++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
 		}
 		// Optimization2: we need to copy the remaining elements only from left array to the main array

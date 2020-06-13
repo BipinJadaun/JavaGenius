@@ -1,5 +1,7 @@
 package algorithms.sorting;
 
+import java.util.Arrays;
+
 /**
  * @author bipin.kumar
  * Insertion sort algorithm works the way we sort playing cards in our hands.
@@ -12,17 +14,20 @@ public class InsertionSort {
 	public static void main(String[] args) {
 
 		int[] array = {20, 35, 7, -15, 55, 1, 9, -22};
-		
-		for(int lastSortedIndex = 0; lastSortedIndex < array.length; lastSortedIndex++) {
+
+		insertionSort(array, 0, array.length);
+
+		System.out.println(Arrays.toString(array));
+	}
+
+	public static void insertionSort(int[] array, int start, int end) {
+		for(int lastSortedIndex = start; lastSortedIndex < end; lastSortedIndex++) {
 			int selected = array[lastSortedIndex];
 			int i;
 			for(i = lastSortedIndex; i > 0 && array[i-1] > selected ; i--) {
 				array[i] = array[i-1];
 			}
 			array[i] = selected;
-		}
-		for(int i : array) {
-			System.out.println(i);
 		}
 	}
 }
