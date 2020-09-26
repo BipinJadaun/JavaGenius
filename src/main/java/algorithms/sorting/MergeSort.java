@@ -5,7 +5,8 @@ package algorithms.sorting;
  * MergeSort leverages the "divide-and-conquer" principle. wherein we first divide the problem into sub-problems.
  * When the solutions for the sub-problems are ready, we combine them together to get the final solution to the problem.
  * Divide: In this step, we divide the input array into 2 halves, the pivot being the midpoint of the array.
- * 			This step is carried out recursively for all the half arrays until there are no more half arrays to divide.
+ * 			This step is carried out recursively for all the half arrays until the divided array is of size 1
+ * 		    and can not be divided further.
  * Conquer: In this step, we sort and merge the divided arrays from bottom to top and get the sorted array.
  * * It's not "In-place" but "Stable" sorting algorithm. It has an  O(nlogn) time complexity.
  */
@@ -37,7 +38,8 @@ public class MergeSort {
 	private static void merge(int[] arr, int start, int mid, int end) {
 		// Optimisation1: while merging 2 sorted arrays,
 		// if first element of second array is >= last element of first array
-		// then elements of both the array's are already in its right position in main array
+		// then elements of both the array's are already in their correct position in main array
+		// so we don't have to merge them
 		if (arr[mid-1] <= arr[mid]){
 			return;
 		}
