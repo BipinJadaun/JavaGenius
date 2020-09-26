@@ -1,7 +1,7 @@
 package algorithms.dynamicprogramming;
 public class WildCardMatcher {
 
-	public static void main(String args[])
+	public static void main(String[] args)
     {
         String str = "baaabab";
         String pattern = "*****ba*****ab";
@@ -18,7 +18,7 @@ public class WildCardMatcher {
 		int patLen = pattern.length;
 		int textLen = text.length;
 		
-		boolean tab[][] = new boolean[textLen + 1][patLen + 1];
+		boolean[][] tab = new boolean[textLen + 1][patLen + 1];
 		
 		tab[0][0] = true;
 		

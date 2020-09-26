@@ -2,7 +2,7 @@ package dataStructures.graph;
 
 public class CountIslands {
 	public static void main(String[] args) {
-		int arr[][]=  new int[][] {{1, 1, 0, 0, 0},
+		int[][] arr =  new int[][] {{1, 1, 0, 0, 0},
 									{0, 1, 0, 0, 1},
 									{1, 0, 0, 1, 1},
 									{0, 0, 0, 0, 0},
@@ -15,7 +15,7 @@ public class CountIslands {
 		int m = arr.length;
 		int n = arr[0].length;
 		int count = 0;
-		boolean visited[][] = new boolean[m][n];
+		boolean[][] visited = new boolean[m][n];
 		
 		for(int i = 0; i < m; i++) {
 			for(int j = 0; j < n; j++) {

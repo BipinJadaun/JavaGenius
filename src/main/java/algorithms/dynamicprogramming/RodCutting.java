@@ -1,7 +1,7 @@
 package algorithms.dynamicprogramming;
 public class RodCutting {
 	public static void main(String[] args) {
-		int price[] = {1, 5, 8, 9, 10, 17, 17, 20};
+		int[] price = {1, 5, 8, 9, 10, 17, 17, 20};
 		System.out.println(maxValueRecursive(price, price.length));
 		System.out.println(maxValue(price, price.length));
 	}

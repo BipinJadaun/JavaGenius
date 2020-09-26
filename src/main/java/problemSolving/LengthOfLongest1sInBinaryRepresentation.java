@@ -1,7 +1,7 @@
 package problemSolving;
 /**
  * 
- * @see https://www.geeksforgeeks.org/length-longest-consecutive-1s-binary-representation/
+ * @Link https://www.geeksforgeeks.org/length-longest-consecutive-1s-binary-representation/
  */
 public class LengthOfLongest1sInBinaryRepresentation {
 	public static void main(String[] args) {

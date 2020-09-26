@@ -2,7 +2,7 @@ package algorithms.dynamicprogramming;
 /**
  * 
  * @author rohitmishra
- * @see https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
+ * @link https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
  */
 public class FibonacciNumbers {
 	public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class FibonacciNumbers {
 	}
 
 	private static int fibonacci(int n) {
-		int table[] = new int[n + 1];
+		int[] table = new int[n + 1];
 		table[0] = 0;
 		table[1] = 1;
 		

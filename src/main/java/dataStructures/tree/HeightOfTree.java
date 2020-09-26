@@ -3,7 +3,7 @@ package dataStructures.tree;
 import dataStructures.models.TreeNode;
 /**
  * 
- * @see https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/
+ * @link https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/
  *
  */
 public class HeightOfTree {

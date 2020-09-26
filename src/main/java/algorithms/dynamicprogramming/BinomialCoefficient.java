@@ -2,7 +2,7 @@ package algorithms.dynamicprogramming;
 /**
  * 
  * @author rohitmishra
- * @see https://www.geeksforgeeks.org/dynamic-programming-set-9-binomial-coefficient/
+ * @link https://www.geeksforgeeks.org/dynamic-programming-set-9-binomial-coefficient/
  *
  */
 public class BinomialCoefficient {
@@ -13,7 +13,7 @@ public class BinomialCoefficient {
 
 	private static int binomialCoeff(int n, int k) {
 	
-		int table[] = new int[k + 1];
+		int[] table = new int[k + 1];
 		table[0] = 1;
 		
 		for(int i = 1; i <= n; i++) {

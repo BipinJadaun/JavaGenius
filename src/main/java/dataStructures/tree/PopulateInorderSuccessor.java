@@ -3,7 +3,7 @@ package dataStructures.tree;
 /**
  * 
  * @author rohitmishra
- * @see https://www.geeksforgeeks.org/populate-inorder-successor-for-all-nodes/
+ * @link https://www.geeksforgeeks.org/populate-inorder-successor-for-all-nodes/
  */
 public class PopulateInorderSuccessor {
 	

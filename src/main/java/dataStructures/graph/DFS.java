@@ -20,7 +20,7 @@ public static void main(String[] args) {
 }
 
 public static void DFS(int s, Graph g) {
-	boolean visited[] = new boolean[g.V];
+	boolean[] visited = new boolean[g.V];
 	DFSUtil(s, visited, g);
 /*	 for (int i = 0; i < g.V; i++)
 	        if (visited[i] == false)

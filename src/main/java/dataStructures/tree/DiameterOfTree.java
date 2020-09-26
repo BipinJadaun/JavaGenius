@@ -3,7 +3,7 @@ package dataStructures.tree;
 import dataStructures.models.TreeNode;
 /**
  * 
- * @see https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
+ * @link https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
  *
  */
 public class DiameterOfTree {

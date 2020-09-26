@@ -3,7 +3,7 @@ package dataStructures.tree;
 import dataStructures.models.TreeNode;
 /**
  * 
- * @see https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
+ * @link https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
  *
  */
 public class CheckIfTreeIsHeightBalanced {

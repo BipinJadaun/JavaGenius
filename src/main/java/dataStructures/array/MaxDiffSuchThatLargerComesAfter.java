@@ -1,11 +1,11 @@
 package dataStructures.array;
 /**
- * @see https://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+ * @link https://www.geeksforgeeks.org/maximum-difference-between-two-elements/
  *
  */
 public class MaxDiffSuchThatLargerComesAfter {
 	public static void main(String[] args) {
-	    int arr[] = {80, 2, 6, 3, 100, 1, 220, 30};
+	    int[] arr = {80, 2, 6, 3, 100, 1, 220, 30};
 	    
 	    System.out.println(findMaxDiffFromPair(arr));
 	}
