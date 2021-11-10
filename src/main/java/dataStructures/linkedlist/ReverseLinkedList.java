@@ -5,31 +5,24 @@ import dataStructures.utils.Util;
 
 public class ReverseLinkedList {
 	public static void main(String[] args) {
-    	ListNode head;
-        
-        /* Constructed Linked List is 1->2->3->4->5->6->7->8->null */
-    	head = new ListNode(1);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(4);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(6);
-    	head.next.next.next.next.next.next = new ListNode(7);
-    	head.next.next.next.next.next.next.next = new ListNode(8);
 
-        Util.printLinkedList(head);
-        ListNode reversedHead = reverseListIteratively(head); 
-        Util.printLinkedList(reversedHead);
-        ListNode originalHead = reverseListRecursively(reversedHead); 
-        Util.printLinkedList(originalHead);
+		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,5,7,8,9};
+		Node<Integer> head = list.addAll(arr);
+
+        list.printList(head);
+        Node reversedHead = reverseListIteratively(head);
+        list.printList(reversedHead);
+        Node originalHead = reverseListRecursively(reversedHead);
+        list.printList(originalHead);
         
         
 	}
 
-	public static ListNode reverseListIteratively(ListNode head) {
+	public static Node reverseListIteratively(Node head) {
 		if(head == null || head.next == null)
 			return head;
-		ListNode prev = null, curr = head, next = head.next;
+		Node prev = null, curr = head, next = null;
 		
 		while(curr != null) {
 			next = curr.next;
@@ -41,12 +34,12 @@ public class ReverseLinkedList {
 		return prev;
 	}
 
-	public static ListNode reverseListRecursively(ListNode head) {
+	public static Node reverseListRecursively(Node head) {
 		if(head == null || head.next == null)
 			return head;
-		ListNode headNext = head.next;
+		Node headNext = head.next;
 		head.next = null;
-		ListNode reversedHead = reverseListRecursively(headNext);
+		Node reversedHead = reverseListRecursively(headNext);
 		headNext.next = head;
 		
 		return reversedHead;

@@ -1,37 +1,23 @@
 package dataStructures.linkedlist;
 
-import dataStructures.models.ListNode;
-import dataStructures.utils.Util;
-
 
 public class MergeTwoSortedLinkedLists {
 	public static void main(String[] args) {
-    	ListNode head, root;
-        
-        /* Constructed Linked List is 1->4->5->6->8->10->13->14->null */
-    	head = new ListNode(1);
-    	head.next = new ListNode(4);
-    	head.next.next = new ListNode(5);
-    	head.next.next.next = new ListNode(6);
-    	head.next.next.next.next = new ListNode(8);
-    	head.next.next.next.next.next = new ListNode(10);
-    	head.next.next.next.next.next.next = new ListNode(13);
-    	head.next.next.next.next.next.next.next = new ListNode(14);
-    	
-        /* Constructed Linked List is 2->3->7->9->11->12->null */
-    	root = new ListNode(2);
-    	root.next = new ListNode(3);
-    	root.next.next = new ListNode(7);
-    	root.next.next.next = new ListNode(9);
-    	root.next.next.next.next = new ListNode(11);
-    	root.next.next.next.next.next = new ListNode(12);
 
-    	ListNode mergedHead = mergeSortedLinkedLists(head, root);
-    	Util.printLinkedList(mergedHead);
-    	
+		LinkedListImpl<Integer> list1 = new LinkedListImpl<>();
+		Integer[] arr1 = new Integer[]{1,2,4,6,7,9};
+		Node<Integer> head1 = list1.addAll(arr1);
+
+		LinkedListImpl<Integer> list2 = new LinkedListImpl<>();
+		Integer[] arr2 = new Integer[]{1,3,5,8,11,12};
+		Node<Integer> head2 = list2.addAll(arr2);
+
+    	Node mergedHead = mergeSortedLinkedLists(head1, head2);
+
+    	list1.printList(mergedHead);
 	}
 
-	public static ListNode mergeSortedLinkedLists(ListNode head, ListNode root) {
+	public static Node<Integer> mergeSortedLinkedLists(Node<Integer> head, Node<Integer> root) {
 		if(head == null && root == null)
 			return null;
 		if(head == null)
@@ -39,7 +25,7 @@ public class MergeTwoSortedLinkedLists {
 		if(root == null)
 			return head;
 		
-		if(head.val < root.val) {
+		if(head.value < root.value) {
 			head.next = mergeSortedLinkedLists(head.next, root);
 			return head;
 		} else {

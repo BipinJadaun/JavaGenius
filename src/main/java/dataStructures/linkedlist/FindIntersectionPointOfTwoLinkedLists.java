@@ -1,35 +1,28 @@
 package dataStructures.linkedlist;
-
-import dataStructures.models.ListNode;
 /**
  * 
  * @link https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
  */
 public class FindIntersectionPointOfTwoLinkedLists {
 	public static void main(String[] args) {
-    	ListNode head, root;
-        
-        /* Constructed Linked List is 1->2->3->4->5->6->7->8->null */
-    	head = new ListNode(1);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(4);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(6);
-    	head.next.next.next.next.next.next = new ListNode(7);
-    	head.next.next.next.next.next.next.next = new ListNode(8);
 
-        
-    	root = new ListNode(2);
-    	root.next = new ListNode(3);
-    	root.next.next = head.next.next.next.next.next.next;
-    	root.next.next.next = head.next.next.next.next.next.next.next;
+		LinkedListImpl<Integer> list1 = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,4,5,6,7,8,9};
+		Node<Integer> head1 = list1.addAll(arr);
+		Node<Integer> intPoint = list1.find(6);
 
-    	
-        System.out.println(findIntersectioNodeOfTwoLists(head, root).val);
+		LinkedListImpl<Integer> list2 = new LinkedListImpl<>();
+		Integer[] arr1 = new Integer[]{1,2,3};
+		Node<Integer> head2 = list2.addAll(arr);
+		Node<Integer> lastNode = list2.find(3);
+
+		lastNode.next = intPoint;
+
+
+		System.out.println(findIntersectioNodeOfTwoLists(head1, head2).value);
 	}
 
-	private static ListNode findIntersectioNodeOfTwoLists(ListNode head, ListNode root) {
+	private static Node findIntersectioNodeOfTwoLists(Node head, Node root) {
 		if(head == null || root == null)
 			return null;
 		
@@ -37,7 +30,7 @@ public class FindIntersectionPointOfTwoLinkedLists {
 		int len2 = FindLengthOfLinkedList.countNumberOfNodesRecursively(root);
 		
 		
-		ListNode slow, fast;
+		Node slow, fast;
 		if(len1 < len2) {
 			slow = head;
 			fast = root;

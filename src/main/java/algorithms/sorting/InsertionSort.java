@@ -15,19 +15,20 @@ public class InsertionSort {
 
 		int[] array = {20, 35, 7, -15, 55, 1, 9, -22};
 
-		insertionSort(array, 0, array.length);
+		insertionSort(array);
 
 		System.out.println(Arrays.toString(array));
 	}
 
-	public static void insertionSort(int[] array, int start, int end) {
-		for(int lastSortedIndex = start; lastSortedIndex < end; lastSortedIndex++) {
-			int selected = array[lastSortedIndex];
-			int i;
-			for(i = lastSortedIndex; i > 0 && array[i-1] > selected ; i--) {
-				array[i] = array[i-1];
+	//20, 19, 7, -15, 55, 1, 9, -22
+	public static void insertionSort(int[] array) {
+		for(int i = 1; i < array.length; i++) {
+			int selected = array[i];
+			int j;
+			for(j = i; j > 0 && selected < array[j-1]; j--) {
+				array[j] = array[j-1];
 			}
-			array[i] = selected;
+			array[j] = selected;
 		}
 	}
 }

@@ -10,46 +10,38 @@ import dataStructures.utils.Util;
  */
 public class SwapNodesInLinkedList {
 	public static void main(String[] args) {
-    	ListNode head;
-        
-        /* Constructed Linked List is 1->2->3->4->5->6->7->8->null */
-    	head = new ListNode(4);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(1);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(6);
-    	head.next.next.next.next.next.next = new ListNode(7);
-    	head.next.next.next.next.next.next.next = new ListNode(8);
+		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,5,7,8,9,10,11};
+		Node<Integer> head = list.addAll(arr);
 
     	int x = 4;
     	int y = 1;
     	
-    	Util.printLinkedList(head);
-    	ListNode headSwapped = swapNodes(head, x, y);
+    	list.printList(head);
+    	Node headSwapped = swapNodes(head, x, y);
     	System.out.println();
-    	Util.printLinkedList(headSwapped);
+		list.printList(headSwapped);
     	
 	}
 
-	private static ListNode swapNodes(ListNode head, int x, int y) {
+	private static Node<Integer> swapNodes(Node<Integer> head, int x, int y) {
 		if(head == null || x == y)
 			return head;
-		ListNode xPrev = null, xNode = null, yNode = null, yPrev = null, prev = null, tmp = head;
+		Node<Integer> xPrev = null, xNode = null, yNode = null, yPrev = null, prev = null, tmp = head;
 		
 		while(tmp != null) {
-			if(tmp.val == x) {
+			if(tmp.value == x) {
 				xNode = tmp;
 				xPrev = prev;
 			} 
-			if(tmp.val == y) {
+			if(tmp.value == y) {
 				yNode = tmp;
 				yPrev = prev;
 			}
 			
 			if(xNode != null && yNode != null) {
 				if(yPrev != null) {
-					ListNode xNext = xNode.next;
+					Node xNext = xNode.next;
 					yPrev.next = xNode;
 					xNode.next = yNode.next;
 					yNode.next = xNext;
@@ -58,7 +50,7 @@ public class SwapNodesInLinkedList {
 						head = yNode;
 					}					
 				} else if(xPrev != null) {
-					ListNode yNext = yNode.next;
+					Node yNext = yNode.next;
 					xPrev.next = yNode;
 					yNode.next = xNode.next;
 					xNode.next = yNext;

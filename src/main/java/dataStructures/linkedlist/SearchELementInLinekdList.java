@@ -1,34 +1,25 @@
 package dataStructures.linkedlist;
 
-import dataStructures.models.ListNode;
 
 public class SearchELementInLinekdList {
 	public static void main(String[] args) {
-    	ListNode head;
-        
-        /* Constructed Linked List is 1->2->3->4->5->6->7->8->null */
-    	head = new ListNode(1);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(4);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(6);
-    	head.next.next.next.next.next.next = new ListNode(7);
-    	head.next.next.next.next.next.next.next = new ListNode(8);
+		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,5,7,8,9,10,11};
+		Node<Integer> head = list.addAll(arr);
     	
 
-    	ListNode resultIterative = searchElementIteratively(head, 6);
-    	ListNode resultRecursive = searchElementRecursively(head, 6);
-    	System.out.println(resultIterative == null ? resultIterative : resultIterative.val);
-    	System.out.println(resultRecursive == null ? resultRecursive : resultRecursive.val);
+    	Node resultIterative = searchElementIteratively(head, 6);
+    	Node resultRecursive = searchElementRecursively(head, 6);
+    	System.out.println(resultIterative == null ? resultIterative : resultIterative.value);
+    	System.out.println(resultRecursive == null ? resultRecursive : resultRecursive.value);
     	
 	}
 
-	private static ListNode searchElementIteratively(ListNode head, int element) {
+	private static Node<Integer> searchElementIteratively(Node<Integer> head, int element) {
 		if(head == null)
 			return null;
 		while(head != null) {
-			if(head.val == element)
+			if(head.value == element)
 				return head;
 			head = head.next;
 		}
@@ -36,10 +27,10 @@ public class SearchELementInLinekdList {
 		return null;
 	}
 
-	private static ListNode searchElementRecursively(ListNode head, int element) {
+	private static Node searchElementRecursively(Node<Integer> head, int element) {
 		if(head == null)
 			return null;
-		if(head.val == element)
+		if(head.value == element)
 			return head;
 		return searchElementRecursively(head.next, element);
 	}

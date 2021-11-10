@@ -1,40 +1,27 @@
 package dataStructures.linkedlist;
 
-import dataStructures.models.ListNode;
-import dataStructures.utils.Util;
-
 public class ReverseListInGroupsofkSize {
 	public static void main(String[] args) {
-    	ListNode head;
-        
-        /* Constructed Linked List is 1->2->3->4->5->6->7->8->null */
-    	head = new ListNode(1);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(4);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(6);
-    	head.next.next.next.next.next.next = new ListNode(7);
-    	head.next.next.next.next.next.next.next = new ListNode(8);
-    	head.next.next.next.next.next.next.next.next = new ListNode(9);
-    	head.next.next.next.next.next.next.next.next.next = new ListNode(10);
-    	head.next.next.next.next.next.next.next.next.next.next = new ListNode(11);
+
+		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,5,7,8,9,10,11};
+		Node<Integer> head = list.addAll(arr);
     	
     	int K = 3;
-    	ListNode reversedHeadHybrid = reverseListInKSize(head, K);
-    	Util.printLinkedList(reversedHeadHybrid);
-    	ListNode reversedHeadRecursive = reverseListInKSizeRecursively(reversedHeadHybrid, K);
-    	Util.printLinkedList(reversedHeadRecursive);
+    	Node reversedHeadHybrid = reverseListInKSize(head, K);
+    	list.printList(reversedHeadHybrid);
+    	Node reversedHeadRecursive = reverseListInKSizeRecursively(reversedHeadHybrid, K);
+		list.printList(reversedHeadRecursive);
 	}
 
-	private static ListNode reverseListInKSizeRecursively(ListNode head, int K) {
-		ListNode currNode = head;
-		ListNode prevNode = null;
-		ListNode nextNode = null;
+	private static Node reverseListInKSizeRecursively(Node head, int K) {
+		Node currNode = head;
+		Node prevNode = null;
+		Node nextNode = null;
 		
 		int count = 0; 
 		//verify there are K nodes available
-		ListNode tmp = currNode;
+		Node tmp = currNode;
 		while(count < K && tmp != null) {
 			tmp = tmp.next;
 			count++;
@@ -58,20 +45,20 @@ public class ReverseListInGroupsofkSize {
 		return prevNode;
 	}
 
-	private static ListNode reverseListInKSize(ListNode head, int K) {
+	private static Node reverseListInKSize(Node head, int K) {
         if(head == null || head.next == null)
 			return head;
-		ListNode newHead = null, prevHead = null, curr = head;
+		Node newHead = null, prevHead = null, curr = head;
 
 		while(curr != null) {
 			int count = 1;
-			ListNode startNode = curr;
+			Node startNode = curr;
 			for(; count < K && curr != null; count++) {
 				curr = curr.next;
 			}
 			if(count == K && curr != null) {
-				ListNode nextHead = curr.next;
-				ListNode reversedHead = reverseList(startNode, curr);
+				Node nextHead = curr.next;
+				Node reversedHead = reverseList(startNode, curr);
 				if(newHead == null)
 					newHead = reversedHead;
 				else
@@ -88,7 +75,7 @@ public class ReverseListInGroupsofkSize {
 		return newHead;
 	}
 
-	private static ListNode reverseList(ListNode startNode, ListNode curr) {
+	private static Node reverseList(Node startNode, Node curr) {
 		if(curr == null && startNode == null)
 			return null;
 		if(curr == null)
@@ -98,9 +85,9 @@ public class ReverseListInGroupsofkSize {
 		
 		if(startNode == curr)
 			return curr;
-		ListNode nextNode = startNode.next;
+		Node nextNode = startNode.next;
 		startNode.next = null;
-		ListNode reversed = reverseList(nextNode, curr);
+		Node reversed = reverseList(nextNode, curr);
 		nextNode.next = startNode;
 		
 		return reversed;

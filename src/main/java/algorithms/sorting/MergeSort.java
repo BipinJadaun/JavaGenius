@@ -1,5 +1,10 @@
 package algorithms.sorting;
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.sql.SQLOutput;
+import java.util.Arrays;
+
 /**
  * @author Bipin Jadaun
  * MergeSort leverages the "divide-and-conquer" principle. wherein we first divide the problem into sub-problems.
@@ -18,9 +23,7 @@ public class MergeSort {
 
 		mergeSort(array, 0, array.length);
 
-		for (int value : array) {
-			System.out.println(value);
-		}
+		Arrays.stream(array).forEach(System.out::print);
 	}
 
 	public static void mergeSort(int[] arr, int start, int end){

@@ -11,30 +11,22 @@ import dataStructures.utils.Util;
 public class CheckIfLinkedListIsPalindrome {
 
 	public static void main(String[] args) {
-		ListNode head;
-	    
-	    /* Constructed Linked List is 1->2->3->4->5->4->3->2->1->null */
-		head = new ListNode(1);
-		head.next = new ListNode(2);
-		head.next.next = new ListNode(3);
-		head.next.next.next = new ListNode(4);
-		head.next.next.next.next = new ListNode(5);
-		head.next.next.next.next.next = new ListNode(4);
-		head.next.next.next.next.next.next = new ListNode(3);
-		head.next.next.next.next.next.next.next = new ListNode(2);
-		head.next.next.next.next.next.next.next.next = new ListNode(1);
+
+		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,4,5,4,3,2,1};
+		Node<Integer> head = list.addAll(arr);
 		
 		System.out.println(isListPalindromeUsingStack(head));
 		System.out.println(isListPalindromeByReversingFromMid(head));
-		Util.printLinkedList(head);
+		list.printList(head);
 
 	}
 
-	private static boolean isListPalindromeByReversingFromMid(ListNode head) {
+	private static <E> boolean isListPalindromeByReversingFromMid(Node<E> head) {
 		if(head == null || head.next == null)
 			return true;
 		
-		ListNode slow = head, fast = head, prev = null;
+		Node<E> slow = head, fast = head, prev = null;
 		boolean isPalindrome = false;
 		while(fast != null  && fast.next != null) {
 			prev = slow;
@@ -45,7 +37,7 @@ public class CheckIfLinkedListIsPalindrome {
 		prev.next = ReverseLinkedList.reverseListIteratively(slow);
 		slow = head;
 		fast = prev.next;
-		while(slow.val == fast.val && fast.next != null) {
+		while(slow.value == fast.value && fast.next != null) {
 			slow = slow.next;
 			fast = fast.next;
 		}
@@ -59,12 +51,12 @@ public class CheckIfLinkedListIsPalindrome {
 		return isPalindrome;
 	}
 
-	private static boolean isListPalindromeUsingStack(ListNode head) {
+	private static <E> boolean isListPalindromeUsingStack(Node<E> head) {
 		if(head == null || head.next == null)
 			return true;
-		Stack<ListNode> stack = new Stack<ListNode>();
+		Stack<Node> stack = new Stack<Node>();
 		
-		ListNode slow = head, fast = head;
+		Node slow = head, fast = head;
 		
 		while(fast != null  && fast.next != null) {
 			stack.push(slow);
@@ -77,7 +69,7 @@ public class CheckIfLinkedListIsPalindrome {
 
 			
 		while(!stack.isEmpty()) {
-			if(stack.pop().val != slow.val) {
+			if(stack.pop().value != slow.value) {
 				return false;
 			}
 			slow = slow.next;

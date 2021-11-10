@@ -5,57 +5,49 @@ import dataStructures.utils.Util;
 
 public class DetectAndRemoveLoopInLinkedList {
 	public static void main(String[] args) {
-    	ListNode head;
-        
-        /* Constructed Linked List is 1->2->3->4->5->6->7->8->null */
-    	head = new ListNode(1);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(4);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(6);
-    	head.next.next.next.next.next.next = new ListNode(7);
-    	head.next.next.next.next.next.next.next = new ListNode(8);
 
-    	head.next.next.next.next.next.next.next.next = head.next.next.next.next; // create loop from 8 to 5
+		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,4,5,6,7,8,9};
+		Node<Integer> head = list.addAll(arr);
+
+		Node<Integer> lastNode = list.find(9);
+		Node<Integer> loopNode = list.find(5);
+		lastNode.next = loopNode;
     	
-        ListNode loopRemovedHead = detectAndRemoveLoop(head); 
-        Util.printLinkedList(loopRemovedHead);
+        Node loopRemovedHead = detectAndRemoveLoop(head);
+        list.printList(loopRemovedHead);
 	}
 
-	private static ListNode detectAndRemoveLoop(ListNode head) {
+	private static Node detectAndRemoveLoop(Node head) {
 		if(head == null || head.next == null)
 			return head;
-		
-		
-		// Detect Loop
-		ListNode slow = head, fast = head;
-		
+
+		Node slow = head, fast = head;
 		slow = slow.next;
 		fast = fast.next.next;
-		
+
+		// Detect Loop
 		while(fast != null && fast.next != null) {
 			if(slow == fast) {
+				System.out.println("Loop found");
 				break;
 			}
 			slow = slow.next;
 			fast = fast.next.next;
 		}
-		
-		if(slow == fast) {
-			System.out.println("Loop found");
-			//Start removing loop
-			slow = head;
-			while(slow.next != fast.next) {
-				slow = slow.next;
-				fast = fast.next;
-			}
-			
-			fast.next = null;
-		} else {
-			System.out.println("No Loop found");			
+		// No Loop
+		if(slow != fast){
+			System.out.println("No Loop found");
 			return head;
 		}
+
+		//Start removing loop
+		slow = head;
+		while(slow.next != fast.next) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+		fast.next = null;
 
 		return head;
 	}

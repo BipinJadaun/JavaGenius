@@ -1,37 +1,28 @@
 package dataStructures.linkedlist;
 
-import dataStructures.models.ListNode;
-import dataStructures.utils.Util;
 /**
  * 
  * @link https://www.geeksforgeeks.org/pairwise-swap-elements-of-a-given-linked-list/
  */
 public class PairwiseSwapElements {
 	public static void main(String[] args) {
-    	ListNode head;
-        
-        /* Constructed Linked List is 1->2->3->4->5->6->7->8->null */
-    	head = new ListNode(1);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(4);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(6);
-    	head.next.next.next.next.next.next = new ListNode(7);
-//    	head.next.next.next.next.next.next.next = new ListNode(8);
 
-    	Util.printLinkedList(head);
-    	ListNode modifiedHeadRecursive = pairWiseSwapRecursively(head);
-    	Util.printLinkedList(modifiedHeadRecursive);
-    	ListNode modifiedHeadIterative = pairWiseSwapIteratively(modifiedHeadRecursive);
-    	Util.printLinkedList(modifiedHeadIterative);   	
+		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,4,5,6,7,8,9};
+		Node<Integer> head = list.addAll(arr);
+
+    	list.printList(head);
+    	Node modifiedHeadRecursive = pairWiseSwapRecursively(head);
+		list.printList(modifiedHeadRecursive);
+    	Node modifiedHeadIterative = pairWiseSwapIteratively(modifiedHeadRecursive);
+		list.printList(modifiedHeadIterative);
     	
 	}
 
-	private static ListNode pairWiseSwapIteratively(ListNode head) {
+	private static Node pairWiseSwapIteratively(Node head) {
 		if(head == null)
 			return null;
-		ListNode prevNode = null, nextNode = null, newHead = null;
+		Node prevNode = null, nextNode = null, newHead = null;
 		
 		while(head != null && head.next != null) {
 			nextNode = head.next;
@@ -50,10 +41,10 @@ public class PairwiseSwapElements {
 		return newHead;
 	}
 
-	private static ListNode pairWiseSwapRecursively(ListNode head) {
+	private static Node pairWiseSwapRecursively(Node head) {
 		if(head == null || head.next == null)
 			return head;
-		ListNode curr = head, next = head.next;
+		Node curr = head, next = head.next;
 		
 		if(curr != null && curr.next != null) {
 			curr.next = pairWiseSwapRecursively(next.next);

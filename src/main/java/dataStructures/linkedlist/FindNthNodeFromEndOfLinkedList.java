@@ -1,34 +1,24 @@
 package dataStructures.linkedlist;
 
-import dataStructures.models.ListNode;
-
 public class FindNthNodeFromEndOfLinkedList {
 	public static void main(String[] args) {
-	
-    	ListNode head;
-        
-        /* Constructed Linked List is 1->2->3->4->5->6->7->8->null */
-    	head = new ListNode(1);
-    	head.next = new ListNode(2);
-    	head.next.next = new ListNode(3);
-    	head.next.next.next = new ListNode(4);
-    	head.next.next.next.next = new ListNode(5);
-    	head.next.next.next.next.next = new ListNode(6);
-    	head.next.next.next.next.next.next = new ListNode(7);
-    	head.next.next.next.next.next.next.next = new ListNode(8);
+
+		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		Integer[] arr = new Integer[]{1,2,3,4,5,6,7,8,9};
+		Node<Integer> head = list.addAll(arr);
     	
-    	int n = 9;
-    	ListNode node = findNthNodeFromEnd(head, n);
-    	System.out.println(node != null ? node.val : -1);
+    	int n = 6;
+    	Node node = findNthNodeFromEnd(head, n);
+    	System.out.println(node != null ? node.value : -1);
 
 	}
 
-	private static ListNode findNthNodeFromEnd(ListNode head, int n) {
+	private static Node findNthNodeFromEnd(Node head, int n) {
 		if(head == null)
 			return head;
 		
 		int count = n;
-		ListNode slow = head, fast = head;
+		Node slow = head, fast = head;
 		while(count-- > 0 && fast != null) {
 			fast = fast.next;
 		}
