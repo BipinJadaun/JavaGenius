@@ -10,7 +10,7 @@ package design.patterns.creational;
  */
 public class AbstractFactory {
     public static void main(String[] args) {
-        AllDoorFactory ironDoor = FactoryMaker.getFactory("Iron");
+        AllDoorFactory ironDoor = FactoryMaker.getFactory(DoorType.WOODEN);
         System.out.println(String.format("Door created of type %s with %s",
                 ironDoor.getDoor().getDoorType(), ironDoor.getDoorExpert().getExpertise()));
     }
@@ -18,11 +18,11 @@ public class AbstractFactory {
 
 //this is the abstract factory which provides factory objects
 class FactoryMaker{
-    public static AllDoorFactory getFactory(String type){
+    public static AllDoorFactory getFactory(DoorType type){
         switch (type) {
-            case "Wooden":
+            case WOODEN:
                 return new WoodenDoorFactory();
-            case "Iron":
+            case IRON:
                 return new IronDoorFactory();
             default:
                 return null;
@@ -37,21 +37,21 @@ interface AllDoorFactory {
 class WoodenDoorFactory implements AllDoorFactory {
     @Override
     public Door getDoor() {
-        return new WoodenDoor();
+        return DoorFactory.getDoor(DoorType.WOODEN);
     }
     @Override
     public FittingExpert getDoorExpert() {
-        return new Carpenter();
+        return ExpertFactory.getFittingExpert(DoorType.WOODEN);
     }
 }
 
 class IronDoorFactory implements AllDoorFactory {
     @Override
     public Door getDoor() {
-        return new IronDoor();
+        return DoorFactory.getDoor(DoorType.IRON);
     }
     @Override
     public FittingExpert getDoorExpert() {
-        return new Welder();
+        return ExpertFactory.getFittingExpert(DoorType.IRON);
     }
 }

@@ -23,6 +23,7 @@ public class ThreadPoolExecutorExample implements Runnable {
 	public static void main(String[] args) {
 		BlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>(10);
 		ThreadFactory threadFactory = new ThreadFactory() {
+			@Override
 			public Thread newThread(Runnable r) {
 				int currentCount = counter.getAndIncrement();
 				System.out.println("Creating new thread: " + currentCount);
@@ -30,6 +31,7 @@ public class ThreadPoolExecutorExample implements Runnable {
 			}
 		};
 		RejectedExecutionHandler rejectedHandler = new RejectedExecutionHandler() {
+			@Override
 			public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
 				if (r instanceof ThreadPoolExecutorExample) {
 					ThreadPoolExecutorExample example = (ThreadPoolExecutorExample) r;
